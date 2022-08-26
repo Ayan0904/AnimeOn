@@ -1,0 +1,68 @@
+<%- include('header')-%>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top n">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-3" href="#">AnimeOn</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-5">
+          <li class="nav-item mx-3">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="/upcoming">Upcoming Anime Series</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="/top">Top Rated Anime</a>
+          </li>
+          
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="/hentai">Hentai</a>
+          </li>
+          
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="/summer">Popular</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- search bar -->
+
+  <div class="row justify-content-center search">
+    <div class=" col-12 col-lg-8 col-md-10 col-sm-12">
+    <form method="post" id="searchform" action="/">
+      <div class="input-group">
+        <input type="text" class="form-control p-3" placeholder="Search ..." name="animeName">
+        <button type="submit" class="btn btn-outline-success px-4"><i class="fas fa-search"></i></button>
+      </div>  
+      </form>
+    </div>
+  </div>
+
+
+
+
+    <div class="row justify-content-around">
+        <% if(animeList.length>0){ %>
+       <% for(var i=0;i<animeList.length;i++){ %>
+        <div class="card col-lg-3 col-sm-4 mx-lg-3 my-lg-5 mx-sm-2 my-sm-3">
+            <img src=<%=animeList[i].img_url%> class="card-img-top" alt="imageAnime">
+            <div class="card-body">
+              <h5 class="card-title"><%=animeList[i].title%></h5>
+              <p class="card-text"><%=animeList[i].synopsis%></p>
+              <h6 class="card-text">Episodes : <%=animeList[i].episodes%></h6>
+              <p class="card-text">Score : <%=animeList[i].score%></p>
+            </div>
+          </div>
+        <% } %>
+
+        <% } %>
+    </div>
+
+
+    <%-include('footer')-%>

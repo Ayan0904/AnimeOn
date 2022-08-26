@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Search</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/b432083c4a.js" crossorigin="anonymous"></script>
+
+    <style>
+      .search{
+        padding:130px;
+      }
+      body{
+        background-color: #222831;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1.2rem;
+      }
+      #n{
+        background-color: #393E46;
+      }
+      .card-body{
+          font-size:1rem;
+      }
+      .card-title{
+          font-weight: bolder;
+      }
+      footer div{
+        background-color: #393E46;
+        color:bisque;
+      }
+    </style>
+  </head>
+<body >
+
+
+<nav class="navbar navbar-expand-lg navbar-dark" id="n">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-3" href="#">AnimeOn</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-5">
+          <li class="nav-item mx-3">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">Upcoming Anime Series</a>
+          </li>
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">Popular</a>
+          </li>
+          
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">Top Imdb</a>
+          </li>
+          
+          <li class="nav-item mx-3">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- search bar -->
+
+  <div class="row justify-content-center search">
+    <div class=" col-12 col-lg-8 col-md-10 col-sm-12">
+    <form method="post" id="searchform" action="/">
+      <div class="input-group">
+        <input type="text" class="form-control p-3" placeholder="Search Anime ..." name="animeName">
+        <button type="submit" class="btn btn-outline-success px-4"><i class="fas fa-search"></i></button>
+      </div>  
+      </form>
+    </div>
+  </div>
+
+
+
+
+    <div class="row justify-content-around">
+        <%console.log(animeList.length)%>
+        <% if(animeList.length>0){ %>
+            <%console.log(animeList[0]); %>
+       <% for(var i=0;i<animeList.length;i++){ %>
+        <div class="card mx-4 my-4 col-lg-3 col-sm-4 mx-lg-3 my-lg-5 mx-sm-2 my-sm-3">
+            <img src=<%=animeList[i].img_url%> class="card-img-top" alt="imageAnime">
+            <div class="card-body">
+              <h5 class="card-title"><%=animeList[i].title%></h5>
+              <p class="card-text"><%=animeList[i].synopsis%></p>
+              <h6 class="card-text">Episodes : <%=animeList[i].episodes%></h6>
+              <p class="card-text">Score : <%=animeList[i].score%></p>
+            </div>
+          </div>
+        <% } %>
+
+        <% } %>
+    </div>
+
+    <footer class="">
+      <div class="d-flex justify-content-center pt-3">
+        <p>CopyWright @ Ayan Pingle 2021</p>
+      </div>
+    </footer>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
